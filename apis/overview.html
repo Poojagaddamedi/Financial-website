@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Overview</title>
+</head>
+<body>
+    <h1>Company Overview</h1>
+    <div id="company-data">
+        <p>Loading...</p>
+    </div>
+
+    <script>
+        // Fetch data from the API
+        fetch('http://localhost/financial-data/apis/overview.php?company_id=1')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('company-data');
+                
+                if (data.error) {
+                    container.innerHTML = `<p>${data.error}</p>`;
+                } else {
+                    container.innerHTML = `
+                        <h2>${data.name}</h2>
+                        <p>Sector: ${data.sector}</p>
+                        <p>Market Cap: ${data.market_cap}</p>
+                        <img src="${data.logo_url}" alt="${data.name} Logo" style="max-width: 200px;">
+                    `;
+                }
+            })
+            .catch(error => {
+                document.getElementById('company-data').innerHTML = `<p>Error: ${error.message}</p>`;
+            });
+    </script>
+</body>
+</html>
