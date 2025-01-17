@@ -1,0 +1,115 @@
+@baseUrl = http://localhost/fintech/apis
+@company_id = 1
+@year = 2023
+@date = 2023-12-01
+
+### Get Company Overview
+GET {{baseUrl}}/overview.php?company_id={{company_id}}
+Content-Type: application/json
+
+### Get Balance Sheet Data
+GET {{baseUrl}}/balance_sheet.php?company_id={{company_id}}&year={{year}}
+Content-Type: application/json
+
+### Get Profit & Loss Data
+GET {{baseUrl}}/profit_loss.php?company_id={{company_id}}&year={{year}}
+Content-Type: application/json
+
+### Get Cash Flow Data
+GET {{baseUrl}}/cash_flow.php?company_id={{company_id}}&year={{year}}
+Content-Type: application/json
+
+### Get Financial Ratios
+GET {{baseUrl}}/ratios.php?company_id={{company_id}}&year={{year}}
+Content-Type: application/json
+
+### Get Shareholding Pattern
+GET {{baseUrl}}/shareholding.php?company_id={{company_id}}&year={{year}}
+Content-Type: application/json
+
+### Get Stock Prices
+GET {{baseUrl}}/stock_prices.php?company_id={{company_id}}&date={{date}}
+Content-Type: application/json
+
+### Get Documents
+# Available document_types: Annual Report, Quarterly Report
+GET {{baseUrl}}/documents.php?company_id={{company_id}}&document_type=Annual Report
+Content-Type: application/json
+
+### Get Media
+# Available media_types: Press Release, Presentation, Video
+GET {{baseUrl}}/media.php?company_id={{company_id}}&media_type=Press Release
+Content-Type: application/json
+
+### Example responses for each endpoint:
+
+# Overview Response:
+# {
+#   "company_id": 1,
+#   "name": "Tech Corp",
+#   "sector": "Technology",
+#   "market_cap": 1000000000.00,
+#   "logo_url": "https://example.com/logos/techcorp.png"
+# }
+
+# Balance Sheet Response:
+# {
+#   "assets": 1000000.00,
+#   "liabilities": 600000.00,
+#   "equity": 400000.00
+# }
+
+# Profit & Loss Response:
+# {
+#   "revenue": 500000.00,
+#   "expenses": 300000.00,
+#   "net_profit": 200000.00
+# }
+
+# Cash Flow Response:
+# {
+#   "operating_cash_flow": 250000.00,
+#   "investing_cash_flow": -50000.00,
+#   "financing_cash_flow": -100000.00
+# }
+
+# Ratios Response:
+# [{
+#   "current_ratio": 2.5,
+#   "quick_ratio": 1.8,
+#   "debt_equity_ratio": 0.6,
+#   "roe": 15.5,
+#   "roa": 8.2
+# }]
+
+# Shareholding Response:
+# [{
+#   "promoter_holding": 45.5,
+#   "institutional_holding": 35.2,
+#   "public_holding": 19.3
+# }]
+
+# Stock Prices Response:
+# [{
+#   "open_price": 100.50,
+#   "close_price": 102.75,
+#   "high_price": 103.50,
+#   "low_price": 99.75,
+#   "volume": 1000000
+# }]
+
+# Documents Response:
+# [{
+#   "document_type": "Annual Report",
+#   "document_name": "Annual Report 2023",
+#   "document_url": "https://example.com/docs/annual_report_2023.pdf",
+#   "upload_date": "2023-12-01"
+# }]
+
+# Media Response:
+# [{
+#   "media_type": "Press Release",
+#   "media_name": "Q4 Results",
+#   "media_url": "https://example.com/media/q4_results.pdf",
+#   "upload_date": "2023-12-15"
+# }] 
